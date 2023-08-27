@@ -7,9 +7,11 @@ import Image from "next/image";
 export default function HamburgerMenuPage({
   personalOptions,
   commissionedOptions,
+  folkloricoOptions,
 }: {
   personalOptions: string[];
   commissionedOptions: string[];
+  folkloricoOptions: string[];
 }) {
   const [open, setOpen] = useState(false);
 
@@ -38,7 +40,7 @@ export default function HamburgerMenuPage({
               />
             </li>
             <li>
-              <DropdownPage title="Folklorico" options={commissionedOptions} />
+              <DropdownPage title="Folklorico" options={folkloricoOptions} />
             </li>
             <li>
               <a

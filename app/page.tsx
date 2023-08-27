@@ -6,6 +6,8 @@ import Footer from "./components/Footer";
 import { getClient } from "./sanity/client";
 import { urlForImage } from "./sanity/urlForImage";
 
+async function getNavSeries() {}
+
 async function getSeries() {
   const client = await getClient();
   const series = await client.fetch(`*[_type == "series"][1]`);
@@ -14,10 +16,22 @@ async function getSeries() {
 
 export default async function Home() {
   const series = await getSeries();
-
+  const commissionedSeries = await getClient().fetch(
+    `*[_type == "series" && category=="commission"]{title,slug}`
+  );
+  const personalSeries = await getClient().fetch(
+    `*[_type == "series" && category=="personal"]{title,slug}`
+  );
+  const folkloricoSeries = await getClient().fetch(
+    `*[_type == "series" && category=="folklorico"]{title,slug}`
+  );
   return (
     <div className="">
-      <Navbar personalOptions={[]} commissionedOptions={[]} />
+      <Navbar
+        personalOptions={personalSeries}
+        commissionedOptions={commissionedSeries}
+        folkloricoOptions={folkloricoSeries}
+      />
 
       <div className="max-w-[1500px] flex flex-col justify-end m-auto h-screen min-h-[700px]">
         <div className="h-16"></div>
