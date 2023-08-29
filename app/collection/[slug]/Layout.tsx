@@ -37,11 +37,11 @@ const Layout = ({
         setOpenGallery={setOpenGallery}
       />
       <section className="m-auto max-w-[1400px]">
-        <div className="flex flex-col md:flex-row px-4 justify-center gap-20 mb-20">
-          <h3 className="w-[100px] flex-1 basis-2/3 leading-[150px] text-[150px] font-bold">
+        <div className="flex flex-col lg:flex-row px-4 justify-center gap-20 mb-20">
+          <h3 className="w-[100px] flex-1 basis-2/3 leading-[75px] md:leading-[150px] text-[75px] md:text-[150px] font-bold">
             {currentSeries?.title}
           </h3>
-          <p className="w-[100px] flex-1 basis-1/3 text-lg leading-10">
+          <p className=" flex-1 basis-1/3 text-lg leading-10">
             {currentSeries?.description}
           </p>
         </div>

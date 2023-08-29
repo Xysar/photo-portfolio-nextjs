@@ -2,6 +2,7 @@
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 
 import React from "react";
+import Image from "next/image";
 
 const MasonryLayout = ({
   series,
@@ -21,7 +22,13 @@ const MasonryLayout = ({
               setChosenImage(index);
             }}
           >
-            <img className="" src={image} />
+            <Image
+              width={300}
+              height={300}
+              alt="image from collection"
+              className="w-full"
+              src={image}
+            />
           </div>
         ))}
       </Masonry>

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { DropdownPage } from "./Dropdown";
 import Image from "next/image";
 
@@ -9,14 +9,16 @@ export default function HamburgerMenuPage({
   commissionedOptions,
   folkloricoOptions,
 }: {
-  personalOptions: string[];
-  commissionedOptions: string[];
-  folkloricoOptions: string[];
+  personalOptions: any[];
+  commissionedOptions: any[];
+  folkloricoOptions: any[];
 }) {
   const [open, setOpen] = useState(false);
+  const [menuOption, setMenuOption] = useState("");
 
   const toggle = () => {
     setOpen((prevState) => !prevState);
+    setMenuOption("");
   };
 
   return (
@@ -44,7 +46,7 @@ export default function HamburgerMenuPage({
             </li>
             <li>
               <a
-                href="/"
+                href="/about"
                 className="hover:underline duration-150 ease-in-out underline-offset-8"
               >
                 About
@@ -74,18 +76,76 @@ export default function HamburgerMenuPage({
         </div>
       </div>
 
-      <div className="md:hidden  ">
+      <div className="md:hidden">
         <HamburgerMenuCollapse open={open}>
           <HamburgerMenuNav toggle={toggle}>
-            <HamburgerMenuItem>
-              <HamburgerMenuLink href="/">Personal</HamburgerMenuLink>
-            </HamburgerMenuItem>
-            <HamburgerMenuItem>
-              <HamburgerMenuLink href="/">Commissioned</HamburgerMenuLink>
-            </HamburgerMenuItem>
-            <HamburgerMenuItem>
-              <HamburgerMenuLink href="/">About</HamburgerMenuLink>
-            </HamburgerMenuItem>
+            {menuOption === "" ? (
+              <div className="">
+                <HamburgerMenuItem>
+                  <HamburgerSubMenu
+                    option="personal"
+                    setMenuOption={setMenuOption}
+                  >
+                    Personal
+                  </HamburgerSubMenu>
+                </HamburgerMenuItem>
+                <HamburgerMenuItem>
+                  <HamburgerSubMenu
+                    option="commissioned"
+                    setMenuOption={setMenuOption}
+                  >
+                    Commissioned
+                  </HamburgerSubMenu>
+                </HamburgerMenuItem>
+                <HamburgerMenuItem>
+                  <HamburgerSubMenu
+                    option="folklorico"
+                    setMenuOption={setMenuOption}
+                  >
+                    Folklorico
+                  </HamburgerSubMenu>
+                </HamburgerMenuItem>
+                <HamburgerMenuItem>
+                  <HamburgerMenuLink href="/about">About</HamburgerMenuLink>
+                </HamburgerMenuItem>
+              </div>
+            ) : menuOption == "personal" ? (
+              <div className="">
+                {personalOptions.map((option, index) => (
+                  <HamburgerMenuItem key={index}>
+                    <HamburgerMenuLink
+                      href={`/collection/${option.slug.current}`}
+                    >
+                      {option.title}
+                    </HamburgerMenuLink>
+                  </HamburgerMenuItem>
+                ))}
+              </div>
+            ) : menuOption == "commissioned" ? (
+              <div className="">
+                {commissionedOptions.map((option, index) => (
+                  <HamburgerMenuItem key={index}>
+                    <HamburgerMenuLink
+                      href={`/collection/${option.slug.current}`}
+                    >
+                      {option.title}
+                    </HamburgerMenuLink>
+                  </HamburgerMenuItem>
+                ))}
+              </div>
+            ) : (
+              <div className="">
+                {folkloricoOptions.map((option, index) => (
+                  <HamburgerMenuItem key={index}>
+                    <HamburgerMenuLink
+                      href={`/collection/${option.slug.current}`}
+                    >
+                      {option.title}
+                    </HamburgerMenuLink>
+                  </HamburgerMenuItem>
+                ))}
+              </div>
+            )}
           </HamburgerMenuNav>
         </HamburgerMenuCollapse>
       </div>
@@ -98,7 +158,7 @@ export default function HamburgerMenuPage({
 const style = {
   nav: `block pl-0 mb-0 `,
   navbar: `font-light shadow fixed top-0 w-full z-50 border-b-2 border-black`,
-  collapse: `transition-height ease duration-300 text-primary] `,
+  collapse: `transition-height ease-in-out duration-300 text-primary `,
   toggler: `float-right pt-1.5 text-3xl focus:outline-none focus:shadow`,
   link: `block cursor-pointer py-3 px-4 hover:text-gray-400 font-medium`,
   brand: `inline-block   mr-4 cursor-pointer text-2xl font-medium whitespace-nowrap hover:text-gray-700`,
@@ -127,30 +187,40 @@ function HamburgerMenuToggler({ toggle }: any) {
       aria-label="Toggle navigation"
       className={style.toggler + ` text-black `}
       onClick={() => toggle()}
-    ></button>
+    >
+      <Image
+        src="/menu.svg"
+        width={40}
+        height={40}
+        alt="Instagram logo"
+        className="py-3 w-8 mx-3 "
+      />
+    </button>
   );
 }
 
 function HamburgerMenuCollapse({ children, open }: any) {
-  const ref: any = React.useRef(null);
+  const [ref, setRef]: any = useState();
 
-  const inlineStyle = open
-    ? { height: ref.current?.scrollHeight, overflow: "hidden" }
+  const [height, setHeight] = useState(ref?.scrollHeight);
+  let inlineStyle = open
+    ? { height: height, overflow: "hidden" }
     : { height: 0, opacity: 0, overflow: "hidden" };
 
   return (
-    <div className={style.collapse} style={inlineStyle} ref={ref}>
+    <div
+      className={style.collapse}
+      style={inlineStyle}
+      ref={(newRef) => setRef(newRef)}
+      onClick={() => {}}
+    >
       {children}
     </div>
   );
 }
 
 function HamburgerMenuNav({ children, toggle }: any) {
-  return (
-    <ul onClick={() => toggle()} className={style.nav}>
-      {children}
-    </ul>
-  );
+  return <ul className={style.nav}>{children}</ul>;
 }
 
 function HamburgerMenuItem({ children }: any) {
@@ -163,5 +233,19 @@ function HamburgerMenuLink({ children, href }: any) {
     <a href={href} className={style.link}>
       {children}
     </a>
+  );
+}
+
+/* You can wrap the a tag with Link and pass href to Link if you are using either Create-React-App, Next.js or Gatsby */
+function HamburgerSubMenu({ children, option, setMenuOption }: any) {
+  return (
+    <div
+      className={style.link}
+      onClick={() => {
+        setMenuOption(option);
+      }}
+    >
+      {children}
+    </div>
   );
 }
