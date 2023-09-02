@@ -113,9 +113,7 @@ export default function HamburgerMenuPage({
               <div className="">
                 {personalOptions.map((option, index) => (
                   <HamburgerMenuItem key={index}>
-                    <HamburgerMenuLink
-                      href={`/collection/${option.slug.current}`}
-                    >
+                    <HamburgerMenuLink href={`/series/${option.slug.current}`}>
                       {option.title}
                     </HamburgerMenuLink>
                   </HamburgerMenuItem>
@@ -125,9 +123,7 @@ export default function HamburgerMenuPage({
               <div className="">
                 {commissionedOptions.map((option, index) => (
                   <HamburgerMenuItem key={index}>
-                    <HamburgerMenuLink
-                      href={`/collection/${option.slug.current}`}
-                    >
+                    <HamburgerMenuLink href={`/series/${option.slug.current}`}>
                       {option.title}
                     </HamburgerMenuLink>
                   </HamburgerMenuItem>
@@ -137,9 +133,7 @@ export default function HamburgerMenuPage({
               <div className="">
                 {folkloricoOptions.map((option, index) => (
                   <HamburgerMenuItem key={index}>
-                    <HamburgerMenuLink
-                      href={`/collection/${option.slug.current}`}
-                    >
+                    <HamburgerMenuLink href={`/series/${option.slug.current}`}>
                       {option.title}
                     </HamburgerMenuLink>
                   </HamburgerMenuItem>
@@ -158,7 +152,7 @@ export default function HamburgerMenuPage({
 const style = {
   nav: `block pl-0 mb-0 `,
   navbar: `font-light shadow fixed top-0 w-full z-50 border-b-2 border-black`,
-  collapse: `transition-height ease-in-out duration-300 text-primary `,
+  collapse: `transition-height ease duration-300 text-primary `,
   toggler: `float-right pt-1.5 text-3xl focus:outline-none focus:shadow`,
   link: `block cursor-pointer py-3 px-4 hover:text-gray-400 font-medium`,
   brand: `inline-block   mr-4 cursor-pointer text-2xl font-medium whitespace-nowrap hover:text-gray-700`,
@@ -201,8 +195,7 @@ function HamburgerMenuToggler({ toggle }: any) {
 
 function HamburgerMenuCollapse({ children, open }: any) {
   const [ref, setRef]: any = useState();
-
-  const [height, setHeight] = useState(ref?.scrollHeight);
+  const [height, setHeight]: any = useState(ref?.scrollHeight);
   let inlineStyle = open
     ? { height: height, overflow: "hidden" }
     : { height: 0, opacity: 0, overflow: "hidden" };

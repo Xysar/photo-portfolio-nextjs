@@ -100,7 +100,7 @@ function DropdownItem({ children, link }: any) {
   return (
     <a
       tabIndex={0}
-      href={`/collection/${link}`}
+      href={`/series/${link}`}
       className={style.item}
       role="menuitem"
     >

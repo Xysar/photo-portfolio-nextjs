@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-
+import Image from "next/image";
 const Gallery = ({
   series,
   chosenImage,
@@ -53,10 +53,12 @@ const Gallery = ({
           <p className="text-4xl  font-bold">{"<"}</p>
         </button>
         <div className="">
-          <img
+          <Image
             src={series[chosenImage]}
+            height={400}
+            width={400}
             alt="test image"
-            className="h-[400px] "
+            className="h-[400px]  object-contain "
           />
           <p className="text-lg text-center text-white">Caption goes here</p>
         </div>
