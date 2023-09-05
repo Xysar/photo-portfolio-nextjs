@@ -38,7 +38,7 @@ const Gallery = ({
   };
 
   return openGallery ? (
-    <div className="fixed flex justify-center items-center top-10 w-full h-full bg-slate-950 bg-opacity-50 ">
+    <div className="fixed flex justify-center items-center top-10 w-full h-full bg-slate-950 bg-opacity-50 z-20">
       {/* <button
         className="w-16 h-16 absolute top-16 right-8"
         onClick={() => isImageOpen.set(false)}

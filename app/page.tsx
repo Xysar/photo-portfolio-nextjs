@@ -11,7 +11,7 @@ async function getNavSeries() {}
 
 async function getSeries() {
   const client = await getClient();
-  const series = await client.fetch(`*[_type == "series"][0]`);
+  const series = await client.fetch(`*[_type == "series"][0]{photos}`);
   return series;
 }
 
@@ -27,18 +27,18 @@ export default async function Home() {
     `*[_type == "series" && category=="folklorico"]{title,slug}`
   );
   return (
-    <div className="">
+    <div className=" ">
       <Navbar
         personalOptions={personalSeries}
         commissionedOptions={commissionedSeries}
         folkloricoOptions={folkloricoSeries}
       />
 
-      <div className="max-w-[1500px] flex flex-col justify-end m-auto  min-h-[700px]">
+      <div className="max-w-[1500px] flex flex-col justify-end m-auto   min-h-screen ">
         <div className="h-32"></div>
         <div className="m-auto px-4 pb-8 flex justify-center items-center">
           <div className="flex gap-2 flex-wrap md:flex-nowrap justify-center">
-            {series.photos?.map((single: any, index: any) => (
+            {series.photos?.slice(0, 4).map((single: any, index: any) => (
               <div key={index} className="">
                 <Image
                   alt="wow"

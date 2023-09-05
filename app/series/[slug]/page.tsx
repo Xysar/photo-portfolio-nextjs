@@ -3,6 +3,7 @@ import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import MasonryLayout from "@/app/components/MasonryLayout";
 export const revalidate = 60;
+
 export const dynamic = "force-dynamic";
 import { urlForImage } from "@/app/sanity/urlForImage";
 import { getClient } from "@/app/sanity/client";

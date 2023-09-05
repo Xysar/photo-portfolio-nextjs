@@ -8,17 +8,7 @@ import Gallery from "@/app/components/Gallery";
 import { urlForImage } from "@/app/sanity/urlForImage";
 import { getClient } from "@/app/sanity/client";
 import Image from "next/image";
-const Layout = ({
-  currentSeries,
-  personalOptions,
-  commissionedOptions,
-  folkloricoOptions,
-}: {
-  currentSeries: any;
-  personalOptions: string[];
-  commissionedOptions: string[];
-  folkloricoOptions: string[];
-}) => {
+const Layout = ({ currentSeries }: { currentSeries: any }) => {
   const [chosenImage, setChosenImage] = useState(0);
   const [openGallery, setOpenGallery] = useState(false);
 
@@ -27,9 +17,6 @@ const Layout = ({
         return urlForImage(image).url();
       })
     : [];
-  useEffect(() => {
-    console.log(currentSeries);
-  }, []);
 
   const convertDate = (date: string) => {
     return new Date(date).toLocaleDateString("en-us", {

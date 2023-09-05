@@ -29,12 +29,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
         commissionedOptions={commissionedSeries}
         folkloricoOptions={folkloricoSeries}
       />
-      <Layout
-        currentSeries={currentSeries}
-        personalOptions={personalSeries}
-        commissionedOptions={commissionedSeries}
-        folkloricoOptions={folkloricoSeries}
-      />
+      <Layout currentSeries={currentSeries} />
     </div>
   );
 };

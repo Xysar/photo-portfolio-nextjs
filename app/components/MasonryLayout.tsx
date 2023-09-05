@@ -1,7 +1,8 @@
 "use client";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
-
-import React from "react";
+import AOS from "aos";
+import "aos/dist/aos.css"; // You can also use <link> for styles
+import React, { useEffect } from "react";
 import Image from "next/image";
 
 const MasonryLayout = ({
@@ -10,23 +11,32 @@ const MasonryLayout = ({
   setOpenGallery,
   setChosenImage,
 }: any) => {
+  useEffect(() => {
+    AOS.init({
+      once: true,
+    });
+    setTimeout(() => {
+      AOS.refresh();
+    }, 1000);
+  }, []);
   return (
     <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}>
       <Masonry gutter="10px">
         {series?.map((image: any, index: number) => (
           <div
             key={index}
-            className=""
+            className="relative "
             onClick={() => {
               setOpenGallery((prev: any) => !prev);
               setChosenImage(index);
             }}
           >
             <Image
-              width={300}
-              height={300}
+              width="300"
+              height="300"
+              data-aos="fade-up"
               alt="image from collection"
-              className="w-full"
+              className="w-full h-full"
               src={image}
             />
           </div>
