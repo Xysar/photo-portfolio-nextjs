@@ -37,7 +37,7 @@ const MasonryLayout = ({
               data-aos="fade-up"
               alt="image from collection"
               className="w-full h-full"
-              src={image}
+              src={image.photo}
             />
           </div>
         ))}

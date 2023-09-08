@@ -16,6 +16,7 @@ const Gallery = ({
   const newRef: any = useRef(null);
   useEffect(() => {
     document.addEventListener("mousedown", handleOutsideClick);
+
     return () => {
       document.removeEventListener("mousedown", handleOutsideClick);
     };
@@ -39,12 +40,6 @@ const Gallery = ({
 
   return openGallery ? (
     <div className="fixed flex justify-center items-center top-10 w-full h-full bg-slate-950 bg-opacity-50 z-20">
-      {/* <button
-        className="w-16 h-16 absolute top-16 right-8"
-        onClick={() => isImageOpen.set(false)}
-      >
-        <p className=" text-4xl  font-bold">X</p>
-      </button> */}
       <div className="flex items-center gap-10 max-w-screen" ref={newRef}>
         <button
           className="w-16 h-16 text-slate-100  "
@@ -54,13 +49,15 @@ const Gallery = ({
         </button>
         <div className="">
           <Image
-            src={series[chosenImage]}
+            src={series[chosenImage].photo}
             height="700"
             width="700"
             alt="test image"
-            className="h-[700px] w-[700px]  object-contain "
+            className=" w-[400px] object-contain "
           />
-          <p className="text-lg text-center text-white">Caption goes here</p>
+          <p className="text-lg text-center text-white">
+            {series[chosenImage].caption}
+          </p>
         </div>
         <button
           className="w-16 h-16 text-slate-100 "

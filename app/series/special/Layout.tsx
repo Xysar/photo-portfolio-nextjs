@@ -13,11 +13,12 @@ const Layout = ({ currentSeries }: { currentSeries: any }) => {
   const [chosenImage, setChosenImage] = useState(0);
   const [openGallery, setOpenGallery] = useState(false);
 
-  const seriesPics = currentSeries
-    ? currentSeries.photos?.map((image: any) => {
-        return urlForImage(image).width(700).url();
-      })
-    : [];
+  const seriesPics = currentSeries?.photos?.map((image: any) => {
+    return {
+      photo: urlForImage(image).width(700).url(),
+      caption: image.caption,
+    };
+  });
 
   const convertDate = (date: string) => {
     return new Date(date).toLocaleDateString("en-us", {

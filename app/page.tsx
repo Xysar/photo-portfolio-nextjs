@@ -9,14 +9,10 @@ import { urlForImage } from "./sanity/urlForImage";
 
 async function getNavSeries() {}
 
-async function getSeries() {
-  const client = await getClient();
-  const series = await client.fetch(`*[_type == "series"][0]{photos}`);
-  return series;
-}
-
 export default async function Home() {
-  const series = await getSeries();
+  const homeSeries = await getClient().fetch(
+    `*[_type == "series" && slug.current=="home"][0]`
+  );
   const commissionedSeries = await getClient().fetch(
     `*[_type == "series" && category=="commission"]{title,slug}`
   );
@@ -38,7 +34,7 @@ export default async function Home() {
         <div className="h-32"></div>
         <div className="m-auto px-4 pb-8 flex justify-center items-center">
           <div className="flex gap-2 flex-wrap md:flex-nowrap justify-center">
-            {series.photos?.slice(0, 4).map((single: any, index: any) => (
+            {homeSeries.photos?.slice(0, 4).map((single: any, index: any) => (
               <div key={index} className="">
                 <Image
                   alt="wow"
@@ -52,7 +48,6 @@ export default async function Home() {
 
           <div className=""></div>
         </div>
-
         <Footer />
       </div>
     </div>
