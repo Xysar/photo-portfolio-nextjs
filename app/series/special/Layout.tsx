@@ -7,7 +7,7 @@ import MasonryLayout from "@/app/components/MasonryLayout";
 import Gallery from "@/app/components/Gallery";
 import { urlForImage } from "@/app/sanity/urlForImage";
 import { getClient } from "@/app/sanity/client";
-import heroImage from "/public/heroimage.jpg";
+
 import Image from "next/image";
 const Layout = ({ currentSeries }: { currentSeries: any }) => {
   const [chosenImage, setChosenImage] = useState(0);
@@ -40,7 +40,7 @@ const Layout = ({ currentSeries }: { currentSeries: any }) => {
         <div className=" mb-10 relative  ">
           <div className="w-screen relative sm:absolute top-0  aspect-video max-h-screen">
             <Image
-              src={heroImage}
+              src="/heroimage.jpg"
               fill={true}
               alt="background image"
               className=" z-0 object-cover  "
