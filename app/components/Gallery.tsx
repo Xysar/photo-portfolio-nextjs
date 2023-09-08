@@ -55,10 +55,10 @@ const Gallery = ({
         <div className="">
           <Image
             src={series[chosenImage]}
-            height={400}
-            width={400}
+            height="700"
+            width="700"
             alt="test image"
-            className="h-[400px]  object-contain "
+            className="h-[700px] w-[700px]  object-contain "
           />
           <p className="text-lg text-center text-white">Caption goes here</p>
         </div>

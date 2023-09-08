@@ -32,8 +32,8 @@ const MasonryLayout = ({
             }}
           >
             <Image
-              width="300"
-              height="300"
+              width="500"
+              height="500"
               data-aos="fade-up"
               alt="image from collection"
               className="w-full h-full"

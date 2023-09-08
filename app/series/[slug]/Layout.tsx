@@ -9,23 +9,15 @@ import { urlForImage } from "@/app/sanity/urlForImage";
 import { getClient } from "@/app/sanity/client";
 import Image from "next/image";
 
-const Layout = ({
-  currentSeries,
-  personalOptions,
-  commissionedOptions,
-  folkloricoOptions,
-}: {
-  currentSeries: any;
-  personalOptions: string[];
-  commissionedOptions: string[];
-  folkloricoOptions: string[];
-}) => {
+const Layout = ({ currentSeries }: { currentSeries: any }) => {
   const [chosenImage, setChosenImage] = useState(0);
   const [openGallery, setOpenGallery] = useState(false);
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    console.log(currentSeries);
+  }, []);
   const seriesPics = currentSeries?.photos?.map((image: any) => {
-    return urlForImage(image).url();
+    return urlForImage(image).width(700).url();
   });
 
   const convertDate = (date: string) => {

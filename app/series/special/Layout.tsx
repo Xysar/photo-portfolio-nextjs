@@ -14,7 +14,7 @@ const Layout = ({ currentSeries }: { currentSeries: any }) => {
 
   const seriesPics = currentSeries
     ? currentSeries.photos?.map((image: any) => {
-        return urlForImage(image).url();
+        return urlForImage(image).width(700).url();
       })
     : [];
 
@@ -39,12 +39,12 @@ const Layout = ({ currentSeries }: { currentSeries: any }) => {
         <div className=" mb-10 relative  ">
           <div className="w-screen relative sm:absolute top-0  aspect-video max-h-screen">
             <Image
-              src={seriesPics[0]}
+              src="/heroImage.jpg"
               fill={true}
               alt="background image"
               className=" z-0 object-cover  "
             />
-          </div>
+          </div>{" "}
           <div className=" relative flex flex-col  sm:w-[50%] px-8 py-8  z-10 lg:min-h-screen">
             <h3 className=" leading-[75px]  sm:leading-[80px] text-3xl sm:text-6xl font-bold mb-8">
               {currentSeries?.title}
