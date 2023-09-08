@@ -42,6 +42,7 @@ const Layout = ({ currentSeries }: { currentSeries: any }) => {
             <Image
               src="/heroimage.jpg"
               fill={true}
+              priority
               alt="background image"
               className=" z-0 object-cover  "
             />
