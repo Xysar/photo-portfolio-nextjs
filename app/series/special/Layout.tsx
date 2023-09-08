@@ -39,7 +39,7 @@ const Layout = ({ currentSeries }: { currentSeries: any }) => {
         <div className=" mb-10 relative  ">
           <div className="w-screen relative sm:absolute top-0  aspect-video max-h-screen">
             <Image
-              src="/heroImage.jpg"
+              src="/heroimage.jpg"
               fill={true}
               alt="background image"
               className=" z-0 object-cover  "
