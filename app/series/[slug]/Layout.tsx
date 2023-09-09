@@ -39,16 +39,18 @@ const Layout = ({ currentSeries }: { currentSeries: any }) => {
       />
       <section className="max-w-[1400px] m-auto">
         <div className=" mb-10 relative   ">
-          <div className=" relative flex flex-col sm:flex-row  gap-20 px-8 py-8  z-10 ">
+          <div className=" relative flex flex-col sm:flex-row  sm:gap-20 px-8 py-8  z-10 ">
             <div className="flex-1 ">
               <h3 className=" leading-[75px]  sm:leading-[80px] text-3xl sm:text-6xl font-bold mb-8">
                 {currentSeries?.title}
               </h3>
-              <p className="  text-md leading-8 mb-8">
-                {currentSeries?.description}
-              </p>
+              {currentSeries.description && (
+                <p className="  text-md leading-8 mb-8">
+                  {currentSeries?.description}
+                </p>
+              )}
             </div>
-            <div className="flex-1">
+            <div className="flex-1 sm:mt-6">
               <div>
                 {currentSeries?.credits?.map((credit: any, index: number) => {
                   return (
@@ -68,18 +70,22 @@ const Layout = ({ currentSeries }: { currentSeries: any }) => {
                   );
                 })}
               </div>
-              <p className="text-lg leading-6 mb-4">
-                <span className="font-bold">
-                  Date <br />
-                </span>
-                {convertDate(currentSeries?.date)}
-              </p>
-              <p className="leading-6 text-lg">
-                <span className="font-bold">
-                  Camera <br />
-                </span>{" "}
-                {currentSeries?.camera}{" "}
-              </p>
+              {currentSeries?.date && (
+                <p className="text-lg leading-6 mb-4">
+                  <span className="font-bold">
+                    Date <br />
+                  </span>
+                  {convertDate(currentSeries?.date)}
+                </p>
+              )}
+              {currentSeries?.camera && (
+                <p className="leading-6 text-lg">
+                  <span className="font-bold">
+                    Camera <br />
+                  </span>{" "}
+                  {currentSeries?.camera}{" "}
+                </p>
+              )}
             </div>
           </div>
         </div>
