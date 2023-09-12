@@ -22,9 +22,12 @@ const Gallery = ({
     };
   });
 
-  const handleClick = (e: MouseEvent) => {
-    let center = e.target?.getBoundingClientRect().width / 2;
-    if (e.clientX > center) {
+  const handleClick = (e: React.MouseEvent<HTMLElement>) => {
+    let rect = e.currentTarget?.getBoundingClientRect();
+    let center = rect.width / 2;
+    const x = e.clientX - rect.left;
+    console.log(x);
+    if (x > center) {
       increaseIndex();
     } else {
       decreaseIndex();
