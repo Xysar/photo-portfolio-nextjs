@@ -48,48 +48,49 @@ const Layout = ({ currentSeries }: { currentSeries: any }) => {
               className=" z-0 object-cover  "
             />
           </div>{" "}
-          <div className=" relative flex flex-col  sm:w-[50%] px-8 py-8  z-10 lg:min-h-screen">
-            <h3 className=" leading-[75px]  sm:leading-[80px] text-3xl sm:text-6xl font-bold mb-8">
-              {currentSeries?.title}
-            </h3>
-            {currentSeries?.description && (
-              <p className="  text-md leading-8 mb-8">
-                {currentSeries?.description}
-              </p>
-            )}
-            <div>
-              {currentSeries?.credits?.map((credit: any, index: number) => {
-                return (
-                  <p key={index} className="text-lg leading-8 mb-4">
-                    <span className="font-bold ">
-                      {credit.name} <br />
-                    </span>
-                    {credit.people.map((person: any, key: number) => {
-                      if (key + 1 === credit.people.length) {
-                        return <span key={key}>{person}</span>;
-                      } else {
-                        return <span key={key}>{person}, </span>;
-                      }
-                    })}
-                    {currentSeries.credits.length !== index + 1 && <br />}
-                  </p>
-                );
-              })}
+          <div className=" relative flex flex-col sm:items-center sm:w-[50%] px-8 py-8  z-10 lg:min-h-screen">
+            <div className="">
+              <h3 className=" leading-[75px]  sm:leading-[80px] text-3xl sm:text-6xl font-bold mb-8">
+                {currentSeries?.title}
+              </h3>
+              {currentSeries?.description && (
+                <p className="  text-md leading-8 mb-8">
+                  {currentSeries?.description}
+                </p>
+              )}
+              <div>
+                {currentSeries?.credits?.map((credit: any, index: number) => {
+                  return (
+                    <p key={index} className="text-lg leading-8 mb-4">
+                      <span className="font-bold ">
+                        {credit.name} <br />
+                      </span>
+                      {credit.people.map((person: any, key: number) => {
+                        if (key + 1 === credit.people.length) {
+                          return <span key={key}>{person}</span>;
+                        } else {
+                          return <span key={key}>{person}, </span>;
+                        }
+                      })}
+                      {currentSeries.credits.length !== index + 1 && <br />}
+                    </p>
+                  );
+                })}
+              </div>
+              {currentSeries.camera && (
+                <p className="leading-6 text-lg mb-4">
+                  <span className="font-bold">
+                    Camera <br />
+                  </span>{" "}
+                  {currentSeries?.camera}{" "}
+                </p>
+              )}
+              {currentSeries.date && (
+                <p className="text-lg leading-6 font-bold">
+                  {convertDate(currentSeries?.date)}
+                </p>
+              )}
             </div>
-
-            {currentSeries.camera && (
-              <p className="leading-6 text-lg mb-4">
-                <span className="font-bold">
-                  Camera <br />
-                </span>{" "}
-                {currentSeries?.camera}{" "}
-              </p>
-            )}
-            {currentSeries.date && (
-              <p className="text-lg leading-6 font-bold">
-                {convertDate(currentSeries?.date)}
-              </p>
-            )}
           </div>
         </div>
       </section>
