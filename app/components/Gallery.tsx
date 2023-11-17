@@ -35,6 +35,7 @@ const Gallery = ({
   };
 
   const handleOutsideClick = (e: any) => {
+    console.log(e);
     if (newRef.current && !newRef.current.contains(e.target)) {
       setOpenGallery(false);
     }
@@ -52,50 +53,53 @@ const Gallery = ({
   };
 
   return openGallery ? (
-    <div className="">
+    <div className="hidden sm:flex">
       <div className="flex fixed justify-center items-center top-10 w-full h-full bg-slate-950 bg-opacity-50 z-20">
-        <div className="" ref={newRef}>
-          <div className="hidden sm:flex items-center gap-10 max-w-screen">
+        <div className="">
+          <div className="hidden sm:flex w-screen justify-evenly items-center gap-10 ">
             <button
-              className="w-16 h-16 text-slate-100  "
+              className="w-16 h-16  text-slate-100  "
               onClick={() => decreaseIndex()}
             >
               <p className="text-4xl  font-bold">{"<"}</p>
             </button>
-            <div className="">
+            <div className=" w-[800px]  " ref={newRef}>
               <Image
                 src={series[chosenImage].photo}
-                height="700"
-                width="700"
+                height="800"
+                width="800"
                 alt="test image"
-                className=" w-[400px] object-contain "
+                className="  max-h-screen object-contain "
               />
               <p className="text-lg text-center text-white">
                 {series[chosenImage].caption}
               </p>
             </div>
             <button
+              id="right"
               className="w-16 h-16 text-slate-100 "
-              onClick={() => increaseIndex()}
+              onClick={(e) => {
+                increaseIndex();
+              }}
             >
               <p className="text-4xl font-bold"> {">"}</p>
             </button>
           </div>
-          <div className="sm:hidden flex">
+          {/* <div className="sm:hidden flex ">
             <div className="">
               <Image
                 src={series[chosenImage].photo}
                 height="700"
                 width="700"
                 alt="test image"
-                className=" w-[400px] object-contain "
+                className="object-contain "
                 onClick={(e) => handleClick(e)}
               />
               <p className="text-lg text-center text-white">
                 {series[chosenImage].caption}
               </p>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
