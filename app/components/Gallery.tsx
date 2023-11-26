@@ -57,17 +57,17 @@ const Gallery = ({
       <div className="flex fixed justify-center items-center top-10 w-full h-full bg-slate-950 bg-opacity-50 z-20">
         <div className="">
           <div className="hidden sm:flex w-screen justify-evenly items-center gap-10 ">
-            <button
+            {/* <button
               className="w-16 h-16  text-slate-100  "
               onClick={() => decreaseIndex()}
             >
               <p className="text-4xl  font-bold">{"<"}</p>
-            </button>
+            </button> */}
             <div className=" w-[800px]  " ref={newRef}>
               <Image
                 src={series[chosenImage].photo}
-                height="800"
-                width="800"
+                height="1000"
+                width="1000"
                 alt="test image"
                 className="  max-h-screen object-contain "
               />
@@ -75,7 +75,7 @@ const Gallery = ({
                 {series[chosenImage].caption}
               </p>
             </div>
-            <button
+            {/* <button
               id="right"
               className="w-16 h-16 text-slate-100 "
               onClick={(e) => {
@@ -83,7 +83,7 @@ const Gallery = ({
               }}
             >
               <p className="text-4xl font-bold"> {">"}</p>
-            </button>
+            </button> */}
           </div>
           {/* <div className="sm:hidden flex ">
             <div className="">
