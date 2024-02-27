@@ -55,7 +55,10 @@ export default function HamburgerMenuPage({
           </ul>
         </div>
         <div className=" hidden md:block ">
-          <a href="" className="inline-block ">
+          <a
+            href="https://www.instagram.com/ist.osorio/"
+            className="inline-block "
+          >
             <Image
               src="/instagram.svg"
               width={30}

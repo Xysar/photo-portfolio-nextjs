@@ -22,18 +22,6 @@ const Gallery = ({
     };
   });
 
-  const handleClick = (e: React.MouseEvent<HTMLElement>) => {
-    let rect = e.currentTarget?.getBoundingClientRect();
-    let center = rect.width / 2;
-    const x = e.clientX - rect.left;
-    console.log(x);
-    if (x > center) {
-      increaseIndex();
-    } else {
-      decreaseIndex();
-    }
-  };
-
   const handleOutsideClick = (e: any) => {
     console.log(e);
     if (newRef.current && !newRef.current.contains(e.target)) {

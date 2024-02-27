@@ -1,9 +1,8 @@
 import Image from "next/image";
-
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-export const revalidate = 60;
-export const dynamic = "force-dynamic";
+// export const revalidate = 60;
+// export const dynamic = "force-dynamic";
 import { getClient } from "./sanity/client";
 import { urlForImage } from "./sanity/urlForImage";
 
@@ -13,23 +12,9 @@ export default async function Home() {
   const homeSeries = await getClient().fetch(
     `*[_type == "series" && slug.current=="home"][0]`
   );
-  const commissionedSeries = await getClient().fetch(
-    `*[_type == "series" && category=="commission"]{title,slug}`
-  );
-  const personalSeries = await getClient().fetch(
-    `*[_type == "series" && category=="personal"]{title,slug}`
-  );
-  const folkloricoSeries = await getClient().fetch(
-    `*[_type == "series" && category=="folklorico"]{title,slug}`
-  );
+
   return (
     <div className=" ">
-      <Navbar
-        personalOptions={personalSeries}
-        commissionedOptions={commissionedSeries}
-        folkloricoOptions={folkloricoSeries}
-      />
-
       <div className="max-w-[1500px] flex flex-col justify-end m-auto   min-h-screen ">
         <div className="h-32"></div>
         <div className="m-auto px-4 pb-8 flex justify-center items-center">
