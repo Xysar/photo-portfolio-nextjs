@@ -33,9 +33,9 @@ const HomeGallery = ({ homeSeries }: { homeSeries: any }) => {
       <div className="">
         <Image
           alt="wow"
-          data-aos="fade-right"
+          data-aos="fade"
           data-aos-easing="ease-in-out"
-          data-aos-duration="1000"
+          data-aos-duration="500"
           priority
           width={500}
           height={500}
@@ -45,9 +45,10 @@ const HomeGallery = ({ homeSeries }: { homeSeries: any }) => {
       <div className="">
         <Image
           alt="wow"
-          data-aos="fade-up"
+          data-aos="fade"
           data-aos-easing="ease-in-out"
-          data-aos-duration="1500"
+          data-aos-delay="500"
+          data-aos-duration="1000"
           priority
           width={500}
           height={500}
@@ -57,9 +58,10 @@ const HomeGallery = ({ homeSeries }: { homeSeries: any }) => {
       <div className="">
         <Image
           alt="wow"
-          data-aos="fade-down"
+          data-aos="fade"
           data-aos-easing="ease-in-out"
-          data-aos-duration="1000"
+          data-aos-delay="700"
+          data-aos-duration="1200"
           priority
           width={500}
           height={500}
@@ -69,8 +71,9 @@ const HomeGallery = ({ homeSeries }: { homeSeries: any }) => {
       <div className="">
         <Image
           alt="wow"
-          data-aos="fade-left"
+          data-aos="fade"
           data-aos-easing="ease-in-out"
+          data-aos-delay="100"
           data-aos-duration="1000"
           priority
           width={500}
