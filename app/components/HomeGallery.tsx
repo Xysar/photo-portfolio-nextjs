@@ -1,0 +1,85 @@
+"use client";
+import React from "react";
+import Image from "next/image";
+import { urlForImage } from "../sanity/urlForImage";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
+const HomeGallery = ({ homeSeries }: { homeSeries: any }) => {
+  useEffect(() => {
+    AOS.init({
+      once: true,
+    });
+    setTimeout(() => {
+      AOS.refresh();
+    }, 1000);
+  }, []);
+
+  return (
+    <div className="flex gap-2 flex-wrap md:flex-nowrap justify-center">
+      {/* {homeSeries.photos?.slice(0, 4).map((single: any, index: any) => (
+        <div key={index} className="">
+          <Image
+            alt="wow"
+            data-aos="fade-up"
+            data-aos-easing="ease-in-out"
+            data-aos-duration="1000"
+            width={500}
+            height={500}
+            src={urlForImage(single).width(500).height(500).url()}
+          />
+        </div>
+      ))} */}
+      <div className="">
+        <Image
+          alt="wow"
+          data-aos="fade-right"
+          data-aos-easing="ease-in-out"
+          data-aos-duration="1000"
+          priority
+          width={500}
+          height={500}
+          src={urlForImage(homeSeries.photos[0]).width(500).height(500).url()}
+        />
+      </div>
+      <div className="">
+        <Image
+          alt="wow"
+          data-aos="fade-up"
+          data-aos-easing="ease-in-out"
+          data-aos-duration="1500"
+          priority
+          width={500}
+          height={500}
+          src={urlForImage(homeSeries.photos[1]).width(500).height(500).url()}
+        />
+      </div>
+      <div className="">
+        <Image
+          alt="wow"
+          data-aos="fade-down"
+          data-aos-easing="ease-in-out"
+          data-aos-duration="1000"
+          priority
+          width={500}
+          height={500}
+          src={urlForImage(homeSeries.photos[2]).width(500).height(500).url()}
+        />
+      </div>
+      <div className="">
+        <Image
+          alt="wow"
+          data-aos="fade-left"
+          data-aos-easing="ease-in-out"
+          data-aos-duration="1000"
+          priority
+          width={500}
+          height={500}
+          src={urlForImage(homeSeries.photos[3]).width(500).height(500).url()}
+        />
+      </div>
+    </div>
+  );
+};
+
+export default HomeGallery;

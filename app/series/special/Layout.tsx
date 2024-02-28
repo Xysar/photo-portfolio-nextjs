@@ -1,12 +1,10 @@
 "use client";
 import React, { useEffect, useState } from "react";
 
-import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import MasonryLayout from "@/app/components/MasonryLayout";
 import Gallery from "@/app/components/Gallery";
 import { urlForImage } from "@/app/sanity/urlForImage";
-import { getClient } from "@/app/sanity/client";
 
 import Image from "next/image";
 const Layout = ({ currentSeries }: { currentSeries: any }) => {
