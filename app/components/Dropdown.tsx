@@ -11,7 +11,7 @@ export const DropdownPage = ({
 }) => (
   <Dropdown>
     <DropdownToggle>
-      <span className="hover:underline duration-150 ease-in-out underline-offset-8">
+      <span className="hover:underline duration-150 ease-in-out pb-2 underline-offset-8">
         {title}
       </span>
     </DropdownToggle>

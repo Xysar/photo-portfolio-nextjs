@@ -61,6 +61,7 @@ export default function HamburgerMenuPage({
           >
             <Image
               src="/instagram.svg"
+              priority
               width={30}
               height={30}
               alt="Instagram logo"
@@ -70,6 +71,7 @@ export default function HamburgerMenuPage({
           <a href="" className="inline-block ">
             <Image
               src="/youtube.svg"
+              priority
               width={30}
               height={30}
               alt="Instagram logo"
