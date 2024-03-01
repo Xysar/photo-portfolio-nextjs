@@ -33,16 +33,25 @@ export default function HamburgerMenuPage({
         <div className="hidden md:block">
           <ul className="flex gap-10 py-1 px-4 text-primary text-sm font-medium ">
             <li>
-              <DropdownPage title="Personal" options={personalOptions} />
+              <DropdownPage
+                title="Personal"
+                type="series"
+                options={personalOptions}
+              />
             </li>
             <li>
               <DropdownPage
                 title="Commissioned"
+                type="collection"
                 options={commissionedOptions}
               />
             </li>
             <li>
-              <DropdownPage title="Folklorico" options={folkloricoOptions} />
+              <DropdownPage
+                title="Folklorico"
+                type="series"
+                options={folkloricoOptions}
+              />
             </li>
             <li>
               <a

@@ -4,9 +4,11 @@ import React from "react";
 
 export const DropdownPage = ({
   title,
+  type,
   options,
 }: {
   title: string;
+  type: string;
   options: any[];
 }) => (
   <Dropdown>
@@ -17,7 +19,7 @@ export const DropdownPage = ({
     </DropdownToggle>
     <DropdownMenu>
       {options.map((single, index) => (
-        <DropdownItem link={single.slug.current} key={index}>
+        <DropdownItem link={single.slug.current} type={type} key={index}>
           {single.title}
         </DropdownItem>
       ))}
@@ -96,11 +98,11 @@ function DropdownMenu({ children }: any) {
 }
 
 /* You can wrap the a tag with Link and pass href prop to Link if you are using either Create-React-App, Next.js or Gatsby */
-function DropdownItem({ children, link }: any) {
+function DropdownItem({ children, type, link }: any) {
   return (
     <a
       tabIndex={0}
-      href={`/series/${link}`}
+      href={`/${type}/${link}`}
       className={style.item}
       role="menuitem"
     >

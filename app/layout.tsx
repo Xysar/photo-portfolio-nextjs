@@ -15,7 +15,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const commissionedSeries = await getClient().fetch(
-    `*[_type == "series" && category=="commission"]{title,slug}`
+    `*[_type == "collection"]{title,slug}`
   );
   const personalSeries = await getClient().fetch(
     `*[_type == "series" && category=="personal"]{title,slug}`

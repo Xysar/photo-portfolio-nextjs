@@ -1,7 +1,11 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 
 const Layout = ({ currentCollection }: any) => {
+  useEffect(() => {
+    console.log(currentCollection);
+  }, []);
+
   return <div>Layout</div>;
 };
 

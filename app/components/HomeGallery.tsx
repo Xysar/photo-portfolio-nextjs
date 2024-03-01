@@ -16,7 +16,7 @@ const HomeGallery = ({ homeSeries }: { homeSeries: any }) => {
   }, []);
 
   return (
-    <div className="flex gap-2 flex-wrap md:flex-nowrap justify-center">
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-2 flex-wrap md:flex-nowrap justify-center w-[80%] md:max-w-[1300px]">
       {/* {homeSeries.photos?.slice(0, 4).map((single: any, index: any) => (
         <div key={index} className="">
           <Image
@@ -30,7 +30,7 @@ const HomeGallery = ({ homeSeries }: { homeSeries: any }) => {
           />
         </div>
       ))} */}
-      <div className="">
+      <div className=" ">
         <Image
           alt="wow"
           data-aos="fade"
