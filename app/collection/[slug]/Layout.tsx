@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import React, { useEffect } from "react";
 import Image from "next/image";
 import { urlForImage } from "@/app/sanity/urlForImage";
@@ -21,7 +22,7 @@ const Layout = ({ currentCollection }: any) => {
       <div className="bg-red">
         {currentCollection.series.map((singleSeries: any, index: any) => (
           <div className="" key={index}>
-            <h1 className="">{singleSeries.title}</h1>
+            <Image src={singleSeries.thumbnail} alt="series thumnail" />
             <h2 className="">wow</h2>
           </div>
         ))}
