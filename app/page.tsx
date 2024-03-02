@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Footer from "./components/Footer";
-// export const revalidate = 60;
-// export const dynamic = "force-dynamic";
+export const revalidate = 360;
+
 import { getClient } from "./sanity/client";
 import HomeGallery from "./components/HomeGallery";
 import { urlForImage } from "./sanity/urlForImage";
