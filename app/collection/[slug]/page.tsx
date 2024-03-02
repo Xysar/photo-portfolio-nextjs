@@ -8,7 +8,8 @@ import { getClient } from "@/app/sanity/client";
 
 const Page = async ({ params }: { params: { slug: string } }) => {
   const currentCollection = await getClient().fetch(
-    `*[_type == "collection" && slug.current=="${params.slug}"][0]`
+    `*[_type == "collection" && slug.current=="${params.slug}"]
+    {title,series[]->{title,slug,thumbnail}}[0]`
   );
 
   return (
