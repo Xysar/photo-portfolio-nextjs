@@ -1,7 +1,6 @@
 "use client";
 import Image from "next/image";
 import React, { useEffect } from "react";
-import Image from "next/image";
 import { urlForImage } from "@/app/sanity/urlForImage";
 
 const Layout = ({ currentCollection }: any) => {
