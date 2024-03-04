@@ -13,7 +13,7 @@ export default async function Home() {
 
   return (
     <div className=" ">
-      <div className="max-w-[1500px] flex flex-col justify-end m-auto   min-h-screen ">
+      <div className="max-w-[1500px] flex flex-col  m-auto   min-h-screen ">
         <div className="h-32"></div>
         <div className="m-auto px-4 pb-8 flex justify-center items-center">
           <HomeGallery homeSeries={homeSeries} />

@@ -7,6 +7,7 @@ import "aos/dist/aos.css";
 import { useEffect } from "react";
 const HomeGallery = ({ homeSeries }: { homeSeries: any }) => {
   useEffect(() => {
+    console.log(homeSeries);
     AOS.init({
       once: true,
     });
@@ -16,7 +17,7 @@ const HomeGallery = ({ homeSeries }: { homeSeries: any }) => {
   }, []);
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-2 flex-wrap md:flex-nowrap justify-center max-w-[80%] md:max-w-[2000px]">
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-2 m-auto justify-center max-w-[80%] md:max-w-[1500px]">
       {/* {homeSeries.photos?.slice(0, 4).map((single: any, index: any) => (
         <div key={index} className="">
           <Image

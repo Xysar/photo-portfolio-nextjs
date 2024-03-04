@@ -137,7 +137,9 @@ export default function HamburgerMenuPage({
               <div className="">
                 {commissionedOptions.map((option, index) => (
                   <HamburgerMenuItem key={index}>
-                    <HamburgerMenuLink href={`/series/${option.slug.current}`}>
+                    <HamburgerMenuLink
+                      href={`/collection/${option.slug.current}`}
+                    >
                       {option.title}
                     </HamburgerMenuLink>
                   </HamburgerMenuItem>
