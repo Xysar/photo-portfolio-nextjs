@@ -5,10 +5,6 @@ import { urlForImage } from "@/app/sanity/urlForImage";
 import Link from "next/link";
 
 const Layout = ({ currentCollection }: any) => {
-  useEffect(() => {
-    console.log(currentCollection);
-  }, []);
-
   return (
     <section className=" ">
       <div className="h-[95px]"></div>
@@ -18,7 +14,8 @@ const Layout = ({ currentCollection }: any) => {
       <div className="flex flex-wrap justify-center m-auto gap-2 max-w-[80%] md:max-w-[1500px]">
         {currentCollection.series.map((series: any, index: number) => (
           <Link
-            href={`series/${series.slug.current}`}
+            href={`/series/${series.slug.current}`}
+            replace
             key={index}
             className="  "
           >
