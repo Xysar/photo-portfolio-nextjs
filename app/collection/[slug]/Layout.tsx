@@ -22,11 +22,7 @@ const Layout = ({ currentCollection }: any) => {
             <div className="">
               <Image
                 className="w-[300px] h-[200px] hover:shadow-lg shadow ease-in-out duration-200"
-                src={urlForImage(series.thumbnail)
-                  .width(450)
-                  .height(300)
-                  .quality(80)
-                  .url()}
+                src={urlForImage(series.thumbnail).width(450).height(300).url()}
                 alt="series thumnail image"
                 width={300}
                 height={200}
