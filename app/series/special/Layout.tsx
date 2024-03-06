@@ -7,6 +7,7 @@ import Gallery from "@/app/components/Gallery";
 import { urlForImage } from "@/app/sanity/urlForImage";
 
 import Image from "next/image";
+import ColumnLayout from "@/app/components/ColumnLayout";
 const Layout = ({ currentSeries }: { currentSeries: any }) => {
   const [chosenImage, setChosenImage] = useState(0);
   const [openGallery, setOpenGallery] = useState(false);
@@ -94,7 +95,7 @@ const Layout = ({ currentSeries }: { currentSeries: any }) => {
       </section>
       <section className="m-auto max-w-[1400px]">
         <div className="max-w-[1400px] px-4 pb-8">
-          <MasonryLayout
+          <ColumnLayout
             series={seriesPics}
             setChosenImage={setChosenImage}
             setOpenGallery={setOpenGallery}
