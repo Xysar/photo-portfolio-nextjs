@@ -8,13 +8,23 @@ import { urlForImage } from "@/app/sanity/urlForImage";
 
 import Image from "next/image";
 import ColumnLayout from "@/app/components/ColumnLayout";
+import { SanityAsset } from "@sanity/image-url/lib/types/types";
 const Layout = ({ currentSeries }: { currentSeries: any }) => {
   const [chosenImage, setChosenImage] = useState(0);
   const [openGallery, setOpenGallery] = useState(false);
 
   const seriesPics = currentSeries?.photos?.map((image: any) => {
+    let id = image.asset._ref;
+    const dimensions = id.split("-")[2];
+
+    const [width, height] = dimensions
+      .split("x")
+      .map((num: string) => parseInt(num, 10));
+    const aspectRatio = width / height;
+
     return {
-      photo: urlForImage(image).width(600).url(),
+      photo: image,
+      aspectRatio: aspectRatio,
       caption: image.caption,
     };
   });
