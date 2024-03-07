@@ -5,14 +5,24 @@ import Footer from "@/app/components/Footer";
 import MasonryLayout from "@/app/components/MasonryLayout";
 import Gallery from "@/app/components/Gallery";
 import { urlForImage } from "@/app/sanity/urlForImage";
+import Image from "next/image";
 
 const Layout = ({ currentSeries }: { currentSeries: any }) => {
   const [chosenImage, setChosenImage] = useState(0);
   const [openGallery, setOpenGallery] = useState(false);
 
   const seriesPics = currentSeries?.photos?.map((image: any) => {
+    let id = image.asset._ref;
+    const dimensions = id.split("-")[2];
+
+    const [width, height] = dimensions
+      .split("x")
+      .map((num: string) => parseInt(num, 10));
+    const aspectRatio = width / height;
+
     return {
-      photo: urlForImage(image).width(720).url(),
+      photo: image,
+      aspectRatio: aspectRatio,
       caption: image.caption,
     };
   });
@@ -35,7 +45,16 @@ const Layout = ({ currentSeries }: { currentSeries: any }) => {
         setOpenGallery={setOpenGallery}
       />
       <section className="max-w-[1400px] m-auto">
-        <div className=" mb-10 relative   ">
+        <div className="w-screen relative sm:absolute top-0  aspect-video max-h-screen">
+          <Image
+            src=""
+            fill={true}
+            priority
+            alt="background image"
+            className=" z-0 object-cover  "
+          />
+        </div>{" "}
+        <div className=" mb-10 relative">
           <div className=" relative flex flex-col sm:flex-row  sm:gap-20 px-8 py-8  z-10 ">
             <div className="flex-1 ">
               <h3 className=" leading-[75px]  sm:leading-[80px] text-3xl sm:text-6xl font-bold mb-8">

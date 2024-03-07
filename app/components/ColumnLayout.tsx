@@ -17,7 +17,7 @@ const ColumnLayout = ({ series, setOpenGallery, setChosenImage }: any) => {
   }, []);
 
   return (
-    <div className="columns-3 gap-8 space-y-5">
+    <div className="columns-1 gap-8 space-y-5 sm:columns-2 md:columns-3">
       {series?.slice(0, 10).map((image: any, index: number) => {
         return (
           <div
@@ -36,7 +36,8 @@ const ColumnLayout = ({ series, setOpenGallery, setChosenImage }: any) => {
               data-aos-anchor-placement="center-bottom"
               data-aos-duration="1000"
               alt="image from collection"
-              className="w-full"
+              className=""
+              sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
               src={urlForImage(image.photo).width(700).url()}
             />
           </div>

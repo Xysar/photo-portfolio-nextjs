@@ -105,7 +105,7 @@ const Layout = ({ currentSeries }: { currentSeries: any }) => {
       </section>
       <section className="m-auto max-w-[1400px]">
         <div className="max-w-[1400px] px-4 pb-8">
-          <ColumnLayout
+          <MasonryLayout
             series={seriesPics}
             setChosenImage={setChosenImage}
             setOpenGallery={setOpenGallery}
