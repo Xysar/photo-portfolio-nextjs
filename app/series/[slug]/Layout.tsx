@@ -12,7 +12,7 @@ const Layout = ({ currentSeries }: { currentSeries: any }) => {
 
   const seriesPics = currentSeries?.photos?.map((image: any) => {
     return {
-      photo: urlForImage(image).width(720).url(),
+      photo: urlForImage(image).width(700).url(),
       caption: image.caption,
     };
   });

@@ -39,7 +39,7 @@ const MasonryLayout = ({
               data-aos-anchor-placement="center-bottom"
               data-aos-duration="1000"
               alt="image from collection"
-              className="w-full h-full"
+              className=""
               src={image.photo}
             />
           </div>
