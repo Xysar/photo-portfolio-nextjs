@@ -7,7 +7,6 @@ import "aos/dist/aos.css";
 import { useEffect } from "react";
 const HomeGallery = ({ homeSeries }: { homeSeries: any }) => {
   useEffect(() => {
-    console.log(homeSeries);
     AOS.init({
       once: true,
     });

@@ -39,9 +39,9 @@ const MasonryLayout = ({
               data-aos-anchor-placement="center-bottom"
               data-aos-duration="1000"
               alt="image from collection"
-              className="w-full h-full"
+              className=""
               sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
-              src={urlForImage(image.photo).width(700).url()}
+              src={urlForImage(image.photo).width(700).fit("fill").url()}
             />
           </div>
         ))}
