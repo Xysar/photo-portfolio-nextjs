@@ -33,16 +33,15 @@ const Gallery = ({
     <div className="hidden sm:flex">
       <div className="flex fixed justify-center items-center top-12 w-full h-full bg-slate-950 bg-opacity-50 z-20">
         <div className="hidden sm:flex w-screen justify-evenly items-center gap-10 ">
-          <div className=" max-w-[900px]  " ref={newRef}>
+          <div className=" max-w-[1000px]  " ref={newRef}>
             <Image
               src={urlForImage(series[chosenImage].photo)
-                .width(800)
-                .height(800)
+                .width(1000)
                 .dpr(2)
                 .fit("fill")
                 .url()}
-              height={800}
-              width={800}
+              height={1000}
+              width={1000}
               alt="test image"
               className="max-h-[85vh] object-contain"
             />
