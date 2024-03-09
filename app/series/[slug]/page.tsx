@@ -3,8 +3,6 @@ import Navbar from "@/app/components/Navbar";
 
 export const revalidate = 60;
 
-export const dynamic = "force-dynamic";
-
 import { getClient } from "@/app/sanity/client";
 import Layout from "./Layout";
 

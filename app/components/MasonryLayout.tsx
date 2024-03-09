@@ -33,15 +33,15 @@ const MasonryLayout = ({
           >
             <Image
               width={500}
-              height={500}
+              height={500 / image.aspectRatio}
               data-aos="fade-up"
               data-aos-easing="ease-in-out"
               data-aos-anchor-placement="center-bottom"
-              data-aos-duration="1000"
+              data-aos-duration="500"
               alt="image from collection"
               className=""
               sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
-              src={urlForImage(image.photo).width(700).fit("fill").url()}
+              src={urlForImage(image.photo).width(500).fit("fill").url()}
             />
           </div>
         ))}

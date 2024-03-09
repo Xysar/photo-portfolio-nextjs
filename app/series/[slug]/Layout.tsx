@@ -46,15 +46,6 @@ const Layout = ({ currentSeries }: { currentSeries: any }) => {
       />
       <section className="max-w-[1400px] m-auto">
         <div className=" mb-10 relative">
-          {/* <div className="w-screen relative sm:absolute top-0  aspect-video max-h-screen">
-          <Image
-            src="/heroimage.jpg"
-            fill={true}
-            priority
-            alt="background image"
-            className=" z-0 object-cover  "
-          />
-        </div>{" "} */}
           <div className=" relative flex flex-col sm:flex-row  sm:gap-20 px-8 py-8  z-10 ">
             <div className="flex-1 ">
               <h3 className=" leading-[75px]  sm:leading-[80px] text-3xl sm:text-6xl font-bold mb-8">

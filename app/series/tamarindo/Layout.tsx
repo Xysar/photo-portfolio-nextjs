@@ -7,8 +7,7 @@ import Gallery from "@/app/components/Gallery";
 import { urlForImage } from "@/app/sanity/urlForImage";
 
 import Image from "next/image";
-import ColumnLayout from "@/app/components/ColumnLayout";
-import { SanityAsset } from "@sanity/image-url/lib/types/types";
+
 const Layout = ({ currentSeries }: { currentSeries: any }) => {
   const [chosenImage, setChosenImage] = useState(0);
   const [openGallery, setOpenGallery] = useState(false);

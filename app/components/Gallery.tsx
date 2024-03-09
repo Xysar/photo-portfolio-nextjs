@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import Image from "next/image";
+import { urlForImage } from "../sanity/urlForImage";
 const Gallery = ({
   series,
   chosenImage,
@@ -30,21 +31,24 @@ const Gallery = ({
 
   return openGallery ? (
     <div className="hidden sm:flex">
-      <div className="flex fixed justify-center items-center top-10 w-full h-full bg-slate-950 bg-opacity-50 z-20">
-        <div className="">
-          <div className="hidden sm:flex w-screen justify-evenly items-center gap-10 ">
-            <div className=" w-[800px]  " ref={newRef}>
-              <Image
-                src={series[chosenImage].photo}
-                height="1000"
-                width="1000"
-                alt="test image"
-                className="  max-h-screen object-contain "
-              />
-              <p className="text-lg text-center text-white">
-                {series[chosenImage].caption}
-              </p>
-            </div>
+      <div className="flex fixed justify-center items-center top-12 w-full h-full bg-slate-950 bg-opacity-50 z-20">
+        <div className="hidden sm:flex w-screen justify-evenly items-center gap-10 ">
+          <div className=" max-w-[900px]  " ref={newRef}>
+            <Image
+              src={urlForImage(series[chosenImage].photo)
+                .width(800)
+                .height(800)
+                .dpr(2)
+                .fit("fill")
+                .url()}
+              height={800}
+              width={800}
+              alt="test image"
+              className="max-h-[85vh] object-contain"
+            />
+            <p className="text-lg text-center text-white">
+              {series[chosenImage].caption}
+            </p>
           </div>
         </div>
       </div>
