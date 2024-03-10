@@ -32,8 +32,8 @@ const MasonryLayout = ({
             }}
           >
             <Image
-              width={500}
-              height={500 / image.aspectRatio}
+              width={700}
+              height={700 / image.aspectRatio}
               data-aos="fade-up"
               data-aos-easing="ease-in-out"
               data-aos-anchor-placement="center-bottom"

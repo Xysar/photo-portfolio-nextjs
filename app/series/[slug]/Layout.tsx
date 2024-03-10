@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-
+import { Suspense } from "react";
 import Footer from "@/app/components/Footer";
 import MasonryLayout from "@/app/components/MasonryLayout";
 import Gallery from "@/app/components/Gallery";
