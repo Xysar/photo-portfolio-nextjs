@@ -15,14 +15,11 @@ const MasonryLayout = ({
     AOS.init({
       once: true,
     });
-    setTimeout(() => {
-      AOS.refresh();
-    }, 1000);
   }, []);
   return (
     <ResponsiveMasonry columnsCountBreakPoints={{ 300: 1, 640: 2, 768: 3 }}>
       <Masonry gutter="10px">
-        {series?.slice(0, 10).map((image: any, index: number) => (
+        {series?.map((image: any, index: number) => (
           <div
             key={index}
             className="relative "
@@ -41,7 +38,7 @@ const MasonryLayout = ({
               alt="image from collection"
               className=""
               sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
-              src={urlForImage(image.photo).width(500).fit("fill").url()}
+              src={urlForImage(image.photo).width(700).fit("fill").url()}
             />
           </div>
         ))}

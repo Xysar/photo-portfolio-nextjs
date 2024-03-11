@@ -41,7 +41,6 @@ const Layout = ({ currentSeries }: { currentSeries: any }) => {
       <Gallery
         series={seriesPics}
         chosenImage={chosenImage}
-        setChosenImage={setChosenImage}
         openGallery={openGallery}
         setOpenGallery={setOpenGallery}
       />

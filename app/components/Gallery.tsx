@@ -8,13 +8,11 @@ const Gallery = ({
   chosenImage,
   openGallery,
   setOpenGallery,
-  setChosenImage,
 }: {
   series: any[];
   chosenImage: number;
   openGallery: boolean;
   setOpenGallery: any;
-  setChosenImage: any;
 }) => {
   const newRef: any = useRef(null);
   const [loading, setLoading] = useState(true);
@@ -73,11 +71,10 @@ const Gallery = ({
               height={1000}
               width={1000}
               onLoad={() => {
-                console.log("test");
                 setLoading(false);
               }}
               alt="selected image blown up to greater size"
-              className="max-h-[80vh] w-auto object-contain"
+              className="max-h-[75vh] w-auto object-contain"
             />
             <p className="text-lg text-center text-white">
               {series[chosenImage].caption}
