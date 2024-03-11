@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Footer from "./components/Footer";
-export const revalidate = 360;
+export const revalidate = 60;
 
 import { getClient } from "./sanity/client";
 import HomeGallery from "./components/HomeGallery";
