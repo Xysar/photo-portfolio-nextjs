@@ -25,6 +25,7 @@ const page = async () => {
           <Image
             width={500}
             height={700}
+            priority
             sizes="50vw (max-width:768px),100vw"
             src={urlForImage(aboutInfo.profilePicture).fit("crop").url()}
             alt="profile picture"
