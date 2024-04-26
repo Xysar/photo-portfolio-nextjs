@@ -6,10 +6,14 @@ import { getClient } from "./sanity/client";
 import HomeGallery from "./components/HomeGallery";
 import { urlForImage } from "./sanity/urlForImage";
 
+const getHomePageImages = async () => {
+  const homePage = await getClient().fetch(`*[_type=="homePage"][0]`);
+  const homePageImages = homePage.images;
+  return homePageImages;
+};
+
 export default async function Home() {
-  const homeSeries = await getClient().fetch(
-    `*[_type == "series" && slug.current=="home"][0]`
-  );
+  const homeSeries = await getHomePageImages();
 
   return (
     <div className=" ">

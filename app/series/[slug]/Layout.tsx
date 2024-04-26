@@ -1,17 +1,16 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import { Suspense } from "react";
+import React, { useState } from "react";
+
 import Footer from "@/app/components/Footer";
 import MasonryLayout from "@/app/components/MasonryLayout";
 import Gallery from "@/app/components/Gallery";
-import { urlForImage } from "@/app/sanity/urlForImage";
-import Image from "next/image";
 
 const Layout = ({ currentSeries }: { currentSeries: any }) => {
   const [chosenImage, setChosenImage] = useState(0);
   const [openGallery, setOpenGallery] = useState(false);
 
   const seriesPics = currentSeries?.photos?.map((image: any) => {
+    console.log(image);
     let id = image.asset._ref;
     const dimensions = id.split("-")[2];
 

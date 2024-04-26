@@ -14,7 +14,7 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const commissionedSeries = await getClient().fetch(
+  const projectsSeries = await getClient().fetch(
     `*[_type == "collection"]{title,slug}`
   );
   const personalSeries = await getClient().fetch(
@@ -28,7 +28,7 @@ export default async function RootLayout({
       <body>
         <Navbar
           personalOptions={personalSeries}
-          commissionedOptions={commissionedSeries}
+          projectsOptions={projectsSeries}
           folkloricoOptions={folkloricoSeries}
         />
         {children}

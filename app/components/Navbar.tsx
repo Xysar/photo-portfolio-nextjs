@@ -6,11 +6,11 @@ import Image from "next/image";
 
 export default function HamburgerMenuPage({
   personalOptions,
-  commissionedOptions,
+  projectsOptions,
   folkloricoOptions,
 }: {
   personalOptions: any[];
-  commissionedOptions: any[];
+  projectsOptions: any[];
   folkloricoOptions: any[];
 }) {
   const [open, setOpen] = useState(false);
@@ -41,9 +41,9 @@ export default function HamburgerMenuPage({
             </li>
             <li>
               <DropdownPage
-                title="Commissioned"
+                title="Projects"
                 type="collection"
-                options={commissionedOptions}
+                options={projectsOptions}
               />
             </li>
             <li>
@@ -105,10 +105,10 @@ export default function HamburgerMenuPage({
                 </HamburgerMenuItem>
                 <HamburgerMenuItem>
                   <HamburgerSubMenu
-                    option="commissioned"
+                    option="projects"
                     setMenuOption={setMenuOption}
                   >
-                    Commissioned
+                    Projects
                   </HamburgerSubMenu>
                 </HamburgerMenuItem>
                 <HamburgerMenuItem>
@@ -133,9 +133,9 @@ export default function HamburgerMenuPage({
                   </HamburgerMenuItem>
                 ))}
               </div>
-            ) : menuOption == "commissioned" ? (
+            ) : menuOption == "projects" ? (
               <div className="">
-                {commissionedOptions.map((option, index) => (
+                {projectsOptions.map((option, index) => (
                   <HamburgerMenuItem key={index}>
                     <HamburgerMenuLink
                       href={`/collection/${option.slug.current}`}

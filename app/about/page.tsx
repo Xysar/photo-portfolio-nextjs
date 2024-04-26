@@ -1,22 +1,20 @@
 import React from "react";
-export const dynamic = "force-dynamic";
+
 import Image from "next/image";
 import { urlForImage } from "../sanity/urlForImage";
 import { PortableText } from "@portabletext/react";
-//TODO change to revalidate
-
-//
+export const revalidate = 60;
 import { getClient } from "@/app/sanity/client";
 import Footer from "../components/Footer";
 
 const getAboutInfo = async () => {
-  const aboutInfo = await getClient().fetch(`*[_type=="siteSettings" ][0]`);
+  const aboutInfo = await getClient().fetch(`*[_type=="siteSettings"][0]`);
   return aboutInfo;
 };
 
 const page = async () => {
   const aboutInfo = await getAboutInfo();
-  console.log(aboutInfo);
+
   return (
     <section className="max-w-[1400px] m-auto">
       <div className="h-[95px] "></div>

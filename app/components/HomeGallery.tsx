@@ -24,7 +24,7 @@ const HomeGallery = ({ homeSeries }: { homeSeries: any }) => {
           sizes="(max-width: 768px) 50vw, 20vw"
           width={500}
           height={500}
-          src={urlForImage(homeSeries.photos[0]).width(700).height(700).url()}
+          src={urlForImage(homeSeries[0]).width(700).height(700).url()}
         />
       </div>
       <div className="">
@@ -37,7 +37,7 @@ const HomeGallery = ({ homeSeries }: { homeSeries: any }) => {
           priority
           width={500}
           height={500}
-          src={urlForImage(homeSeries.photos[1]).width(500).height(500).url()}
+          src={urlForImage(homeSeries[1]).width(500).height(500).url()}
         />
       </div>
       <div className="">
@@ -50,7 +50,7 @@ const HomeGallery = ({ homeSeries }: { homeSeries: any }) => {
           priority
           width={500}
           height={500}
-          src={urlForImage(homeSeries.photos[2]).width(500).height(500).url()}
+          src={urlForImage(homeSeries[2]).width(500).height(500).url()}
         />
       </div>
       <div className="">
@@ -63,7 +63,7 @@ const HomeGallery = ({ homeSeries }: { homeSeries: any }) => {
           priority
           width={500}
           height={500}
-          src={urlForImage(homeSeries.photos[3]).width(500).height(500).url()}
+          src={urlForImage(homeSeries[3]).width(500).height(500).url()}
         />
       </div>
     </div>
