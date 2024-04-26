@@ -36,7 +36,6 @@ const page = async () => {
           </h1>
           <div className="px-24">
             <PortableText value={aboutInfo.description} />
-            <div className="w-[80px] h-[18px] bg-black float-right  "></div>
           </div>
         </div>
       </div>
