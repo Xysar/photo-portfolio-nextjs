@@ -11,7 +11,7 @@ const Layout = ({ currentCollection }: any) => {
       <p className="  text-center m-8 text-3xl font-bold">
         {currentCollection.title}
       </p>
-      <div className="flex flex-wrap justify-center m-auto gap-2 max-w-[80%] md:max-w-[1500px]">
+      <div className="flex flex-wrap justify-center m-auto gap-3 max-w-[80%] md:max-w-[1500px]">
         {currentCollection.series.map((series: any, index: number) => (
           <Link
             href={`/series/${series.slug.current}`}
@@ -27,7 +27,7 @@ const Layout = ({ currentCollection }: any) => {
                 width={300}
                 height={200}
               />
-              <h2 className=" text-center">{series.title}</h2>
+              <h2 className=" text-center font-semibold">{series.title}</h2>
             </div>
           </Link>
         ))}
