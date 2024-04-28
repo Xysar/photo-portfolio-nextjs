@@ -16,7 +16,7 @@ const HomeGallery = ({ homeSeries }: { homeSeries: any }) => {
     <div className="grid grid-cols-2 md:grid-cols-4 gap-2 m-auto justify-center max-w-[80%] md:max-w-[1500px]">
       <div className=" ">
         <Image
-          alt="wow"
+          alt="homepage images"
           data-aos="fade"
           data-aos-easing="ease-in-out"
           data-aos-duration="500"
@@ -24,12 +24,12 @@ const HomeGallery = ({ homeSeries }: { homeSeries: any }) => {
           sizes="(max-width: 768px) 50vw, 20vw"
           width={500}
           height={500}
-          src={urlForImage(homeSeries[0]).width(700).height(700).url()}
+          src={urlForImage(homeSeries[0]).width(500).height(500).url()}
         />
       </div>
       <div className="">
         <Image
-          alt="wow"
+          alt="homepage images"
           data-aos="fade"
           data-aos-easing="ease-in-out"
           data-aos-delay="500"
@@ -42,7 +42,7 @@ const HomeGallery = ({ homeSeries }: { homeSeries: any }) => {
       </div>
       <div className="">
         <Image
-          alt="wow"
+          alt="homepage images"
           data-aos="fade"
           data-aos-easing="ease-in-out"
           data-aos-delay="700"
@@ -55,7 +55,7 @@ const HomeGallery = ({ homeSeries }: { homeSeries: any }) => {
       </div>
       <div className="">
         <Image
-          alt="wow"
+          alt="homepage images"
           data-aos="fade"
           data-aos-easing="ease-in-out"
           data-aos-delay="100"

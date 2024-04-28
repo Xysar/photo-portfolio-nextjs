@@ -5,12 +5,18 @@ import Footer from "@/app/components/Footer";
 import MasonryLayout from "@/app/components/MasonryLayout";
 import Gallery from "@/app/components/Gallery";
 import { urlForImage } from "@/app/sanity/urlForImage";
-
+import AOS from "aos";
 import Image from "next/image";
 
 const Layout = ({ currentSeries }: { currentSeries: any }) => {
   const [chosenImage, setChosenImage] = useState(0);
   const [openGallery, setOpenGallery] = useState(false);
+
+  useEffect(() => {
+    AOS.init({
+      once: true,
+    });
+  }, []);
 
   const seriesPics = currentSeries?.photos?.map((image: any) => {
     let id = image.asset._ref;
@@ -46,16 +52,24 @@ const Layout = ({ currentSeries }: { currentSeries: any }) => {
       />
       <section className="">
         <div className=" mb-10 relative  ">
-          <div className="w-screen relative sm:absolute top-0  aspect-video max-h-screen">
+          <div className="w-screen relative sm:absolute top-0 aspect-video max-h-screen">
             <Image
               src="/heroimage.jpg"
+              data-aos="fade"
+              data-aos-easing="ease-in-out"
+              data-aos-duration="1000"
               fill={true}
               priority
               alt="background image"
-              className=" z-0 object-cover  "
+              className="z-0 object-cover"
             />
           </div>{" "}
-          <div className=" relative flex flex-col sm:items-center sm:w-[50%] px-8 py-8  z-10 lg:min-h-screen">
+          <div
+            className=" relative flex flex-col sm:items-center sm:w-[50%] px-8 py-8  z-10 lg:min-h-screen"
+            data-aos="fade"
+            data-aos-easing="ease-in-out"
+            data-aos-duration="1000"
+          >
             <div className="">
               <h3 className=" leading-[75px]  sm:leading-[80px] text-3xl sm:text-6xl font-bold mb-8">
                 {currentSeries?.title}

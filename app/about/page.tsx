@@ -27,11 +27,11 @@ const page = async () => {
             sizes="50vw (max-width:768px),100vw"
             src={urlForImage(aboutInfo.profilePicture).fit("crop").url()}
             alt="profile picture"
-            className=" h-[750px] w-[550px] ml-auto  bg-gray-200 "
+            className=" h-[750px] w-[550px] object-contain ml-auto   "
           />
         </div>
         <div className="  ">
-          <h1 className="  text-[125px]  text-black tracking-wider font-medium mt-8 mb-12 whitespace-nowrap lg:-ml-[175px]">
+          <h1 className="lg:text-9xl text-5xl text-center  text-black tracking-wider font-medium mt-8 mb-12 whitespace-nowrap lg:-ml-[200px]">
             {aboutInfo.header}
           </h1>
           <div className="px-24">

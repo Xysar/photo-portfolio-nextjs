@@ -1,5 +1,5 @@
 export const metadata = {
-  title: "Jorge Isoreo",
+  title: "Fotista",
   description: "Professional Handholder",
   icons: {
     icon: "/favicon.svg",
@@ -20,6 +20,9 @@ export default async function RootLayout({
   const personalSeries = await getClient().fetch(
     `*[_type == "series" && category=="personal"]{title,slug}`
   );
+  const daysSeries = await getClient().fetch(
+    `*[_type == "series" && category=="daysofmylives"]{title,slug}`
+  );
   const folkloricoSeries = await getClient().fetch(
     `*[_type == "series" && category=="folklorico"]{title,slug}`
   );
@@ -29,6 +32,7 @@ export default async function RootLayout({
         <Navbar
           personalOptions={personalSeries}
           projectsOptions={projectsSeries}
+          daysOptions={daysSeries}
           folkloricoOptions={folkloricoSeries}
         />
         {children}

@@ -18,11 +18,17 @@ export const DropdownPage = ({
       </span>
     </DropdownToggle>
     <DropdownMenu>
-      {options.map((single, index) => (
-        <DropdownItem link={single.slug.current} type={type} key={index}>
-          {single.title}
-        </DropdownItem>
-      ))}
+      {!options[0] && (
+        <p className="block w-full py-2 px-8  text-sm font-bold whitespace-nowrap">
+          No Series Yet
+        </p>
+      )}
+      {options &&
+        options.map((single, index) => (
+          <DropdownItem link={single.slug.current} type={type} key={index}>
+            {single.title}
+          </DropdownItem>
+        ))}
     </DropdownMenu>
   </Dropdown>
 );

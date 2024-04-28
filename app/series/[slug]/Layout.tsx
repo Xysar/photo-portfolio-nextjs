@@ -1,6 +1,6 @@
 "use client";
-import React, { useState } from "react";
-
+import React, { useState, useEffect } from "react";
+import AOS from "aos";
 import Footer from "@/app/components/Footer";
 import MasonryLayout from "@/app/components/MasonryLayout";
 import Gallery from "@/app/components/Gallery";
@@ -8,6 +8,12 @@ import Gallery from "@/app/components/Gallery";
 const Layout = ({ currentSeries }: { currentSeries: any }) => {
   const [chosenImage, setChosenImage] = useState(0);
   const [openGallery, setOpenGallery] = useState(false);
+
+  useEffect(() => {
+    AOS.init({
+      once: true,
+    });
+  }, []);
 
   const seriesPics = currentSeries?.photos?.map((image: any) => {
     console.log(image);
@@ -43,7 +49,12 @@ const Layout = ({ currentSeries }: { currentSeries: any }) => {
         setOpenGallery={setOpenGallery}
       />
       <section className="max-w-[1400px] m-auto">
-        <div className=" mb-10 relative">
+        <div
+          className=" mb-10 relative"
+          data-aos="fade"
+          data-aos-easing="ease-in-out"
+          data-aos-duration="1000"
+        >
           <div className=" relative flex flex-col sm:flex-row  sm:gap-20 px-8 py-8  z-10 ">
             <div className="flex-1 ">
               <h3 className=" leading-[75px]  sm:leading-[80px] text-3xl sm:text-6xl font-bold mb-8">

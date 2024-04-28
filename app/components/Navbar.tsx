@@ -7,10 +7,12 @@ import Image from "next/image";
 export default function HamburgerMenuPage({
   personalOptions,
   projectsOptions,
+  daysOptions,
   folkloricoOptions,
 }: {
   personalOptions: any[];
   projectsOptions: any[];
+  daysOptions: any[];
   folkloricoOptions: any[];
 }) {
   const [open, setOpen] = useState(false);
@@ -44,6 +46,13 @@ export default function HamburgerMenuPage({
                 title="Projects"
                 type="collection"
                 options={projectsOptions}
+              />
+            </li>
+            <li>
+              <DropdownPage
+                title="Days of my Lives"
+                type="series"
+                options={daysOptions}
               />
             </li>
             <li>
