@@ -6,6 +6,7 @@ export const metadata = {
   },
 };
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/react";
 import Navbar from "@/app/components/Navbar";
 import { getClient } from "./sanity/client";
 
