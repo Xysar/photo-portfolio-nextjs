@@ -31,7 +31,7 @@ const page = async () => {
           />
         </div>
         <div className="  ">
-          <h1 className="  text-[125px]  text-zinc-400 tracking-wider font-medium mt-8 mb-12 whitespace-nowrap lg:-ml-[175px]">
+          <h1 className="  text-[125px]  text-black tracking-wider font-medium mt-8 mb-12 whitespace-nowrap lg:-ml-[175px]">
             {aboutInfo.header}
           </h1>
           <div className="px-24">
