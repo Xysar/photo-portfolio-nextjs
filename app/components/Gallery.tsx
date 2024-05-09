@@ -46,10 +46,6 @@ const Gallery = ({
     }
   };
 
-  const showLoader = () => {
-    return <p className="">Loading...</p>;
-  };
-
   return openGallery ? (
     <div className="hidden sm:flex">
       <div className="flex fixed justify-center items-center top-12 w-full h-full bg-slate-950 bg-opacity-50 z-20">

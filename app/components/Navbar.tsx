@@ -122,6 +122,14 @@ export default function HamburgerMenuPage({
                 </HamburgerMenuItem>
                 <HamburgerMenuItem>
                   <HamburgerSubMenu
+                    option="daysofmylives"
+                    setMenuOption={setMenuOption}
+                  >
+                    Days of my Lives
+                  </HamburgerSubMenu>
+                </HamburgerMenuItem>
+                <HamburgerMenuItem>
+                  <HamburgerSubMenu
                     option="folklorico"
                     setMenuOption={setMenuOption}
                   >
@@ -149,6 +157,16 @@ export default function HamburgerMenuPage({
                     <HamburgerMenuLink
                       href={`/collection/${option.slug.current}`}
                     >
+                      {option.title}
+                    </HamburgerMenuLink>
+                  </HamburgerMenuItem>
+                ))}
+              </div>
+            ) : menuOption == "daysofmylives" ? (
+              <div className="">
+                {daysOptions.map((option, index) => (
+                  <HamburgerMenuItem key={index}>
+                    <HamburgerMenuLink href={`/series/${option.slug.current}`}>
                       {option.title}
                     </HamburgerMenuLink>
                   </HamburgerMenuItem>
