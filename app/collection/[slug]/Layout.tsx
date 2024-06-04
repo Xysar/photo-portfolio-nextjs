@@ -5,7 +5,6 @@ import { urlForImage } from "@/app/sanity/urlForImage";
 import Link from "next/link";
 
 const Layout = ({ currentCollection }: any) => {
-  console.log(currentCollection);
   return (
     <section className=" ">
       <div className="h-[95px]"></div>

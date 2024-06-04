@@ -18,21 +18,23 @@ const Layout = ({ currentSeries }: { currentSeries: any }) => {
     });
   }, []);
 
-  const seriesPics = currentSeries?.photos?.map((image: any) => {
-    let id = image.asset._ref;
-    const dimensions = id.split("-")[2];
+  const seriesPics = currentSeries?.photos
+    ?.filter((image: any) => image.asset)
+    .map((image: any) => {
+      let id = image.asset._ref;
+      const dimensions = id.split("-")[2];
 
-    const [width, height] = dimensions
-      .split("x")
-      .map((num: string) => parseInt(num, 10));
-    const aspectRatio = width / height;
+      const [width, height] = dimensions
+        .split("x")
+        .map((num: string) => parseInt(num, 10));
+      const aspectRatio = width / height;
 
-    return {
-      photo: image,
-      aspectRatio: aspectRatio,
-      caption: image.caption,
-    };
-  });
+      return {
+        photo: image,
+        aspectRatio: aspectRatio,
+        caption: image.caption,
+      };
+    });
 
   const convertDate = (date: string) => {
     return new Date(date).toLocaleDateString("en-us", {

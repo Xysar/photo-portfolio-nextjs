@@ -4,7 +4,7 @@ import AOS from "aos";
 import Footer from "@/app/components/Footer";
 import MasonryLayout from "@/app/components/MasonryLayout";
 import Gallery from "@/app/components/Gallery";
-
+import Image from "next/image";
 const Layout = ({ currentSeries }: { currentSeries: any }) => {
   const [chosenImage, setChosenImage] = useState(0);
   const [openGallery, setOpenGallery] = useState(false);
@@ -15,22 +15,23 @@ const Layout = ({ currentSeries }: { currentSeries: any }) => {
     });
   }, []);
 
-  const seriesPics = currentSeries?.photos?.map((image: any) => {
-    console.log(image);
-    let id = image.asset._ref;
-    const dimensions = id.split("-")[2];
+  const seriesPics = currentSeries?.photos
+    .filter((image: Image) => image.asset)
+    .map((image: Image) => {
+      let id = image.asset._ref;
+      const dimensions = id.split("-")[2];
 
-    const [width, height] = dimensions
-      .split("x")
-      .map((num: string) => parseInt(num, 10));
-    const aspectRatio = width / height;
+      const [width, height] = dimensions
+        .split("x")
+        .map((num: string) => parseInt(num, 10));
+      const aspectRatio = width / height;
 
-    return {
-      photo: image,
-      aspectRatio: aspectRatio,
-      caption: image.caption,
-    };
-  });
+      return {
+        photo: image,
+        aspectRatio: aspectRatio,
+        caption: image.caption,
+      };
+    });
 
   const convertDate = (date: string) => {
     return new Date(date).toLocaleDateString("en-us", {
