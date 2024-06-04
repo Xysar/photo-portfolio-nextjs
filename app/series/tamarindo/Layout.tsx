@@ -54,7 +54,7 @@ const Layout = ({ currentSeries }: { currentSeries: any }) => {
         <div className=" mb-10 relative  ">
           <div className="w-screen relative sm:absolute top-0 aspect-video max-h-screen">
             <Image
-              src="/heroimage.jpg"
+              src="/tamarindo-hero.jpg"
               data-aos="fade"
               data-aos-easing="ease-in-out"
               data-aos-duration="1000"
